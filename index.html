@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width:100%;
+            height:100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box-container{
+            display:flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width:100%;
+            height:100%;
+        }
+        .common{
+            width:24%;
+            height:24%;
+            margin-bottom: 1%;
+            border: 2px solid lightblue;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition:all 0.3s ease-in;
+
+        }
+        .common:hover{
+            background-color: lightgray;
+            transition: 0.3s;
+        }
+
+        .common.col2{
+            background-color: red;
+
+        }
+        .common.col1{
+            background-color: green;
+
+        }
+        .common.ddd{
+            pointer-events: none;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="box-container">
+        <div id="box1" onclick="handle('box1')" class="common"></div>
+        <div id="box2" onclick="handle('box2')" class="common"></div>
+        <div id="box3" onclick="handle('box3')" class="common"></div>
+        <div id="box4" onclick="handle('box4')" class="common"></div>
+        <div id="box5" onclick="handle('box5')" class="common"></div>
+        <div id="box6" onclick="handle('box6')" class="common"></div>
+        <div id="box7" onclick="handle('box7')" class="common"></div>
+        <div id="box8" onclick="handle('box8')" class="common"></div>
+        <div id="box9" onclick="handle('box9')" class="common"></div>
+        <div id="box10" onclick="handle('box10')" class="common"></div>
+        <div id="box11" onclick="handle('box11')" class="common"></div>
+        <div id="box12" onclick="handle('box12')" class="common"></div>
+        <div id="box13" onclick="handle('box13')" class="common"></div>
+        <div id="box14" onclick="handle('box14')" class="common"></div>
+        <div id="box15" onclick="handle('box15')" class="common"></div>
+        <div id="box16" onclick="handle('box16')" class="common"></div>
+    </div>
+    
+
+    <script>
+        var node1 = '';
+        var node2 = '';
+        count = 0;
+        var nodeSerial = [];
+        const handle = (id) =>{
+            if(nodeSerial.includes(id)){
+            }
+            else{
+            nodeSerial.push(id);
+            node2 = node1;
+            node1 = document.getElementById(id);
+            let colRemove = document.querySelectorAll('.common');
+            for(i=0;i<colRemove.length;i++){
+                colRemove[i].classList.remove('col1');
+                colRemove[i].classList.remove('col2');
+            }
+            count+=1;
+            node1.innerText = count;
+            node1.classList.add('col1');
+           
+            if(node2 !== ''){
+                node2.classList.add('col2');
+            }
+            //console.log(id)
+        }}
+    </script>
+</body>
+</html>
